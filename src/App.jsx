@@ -1,35 +1,63 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import Sidebar from "./components/Sidebar";
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+import MarketIndustry from "./components/MarketIndustry";
+import Competitors from "./components/Competitors";
+import BrandHealth from "./components/BrandHealth";
+import Consumers from "./components/Consumers";
+import SWOTAnalysis from "./components/SWOTAnalysis";
 
-function App() {
-  const [count, setCount] = useState(0)
+
+import AuthForm from "./components/AuthForm";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Fragment } from "react";
+import Dashboard from "./pages/Dashboard";
+
+function AppContent() {
+  const location = useLocation();
+  const isAuthPage = location.pathname === "/auth";
+
+  if (isAuthPage) {
+    return (
+      <main className=" min-h-screen flex items-center justify-center bg-light-gray-100">
+        <AuthForm />
+      </main>
+    );
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div>
+      
+      {/* This wrapper has left padding to offset the fixed sidebar */}
+      <div className=" min-h-screen">
+      
+        
+          <Routes>
+            <Route path="/" element={<AuthForm />} />
+         <Route path="/dash" element={<Dashboard />}>
+  <Route path="home" element={<Home />} />
+  <Route path="market-industry" element={<MarketIndustry />} />
+  <Route path="competitors" element={<Competitors />} />
+  <Route path="brand-health" element={<BrandHealth />} />
+  <Route path="consumers" element={<Consumers />} />
+  <Route path="swot-analysis" element={<SWOTAnalysis />} />
+</Route>
+
+            {/* <Route path="/auth" element={<AuthForm />} /> */}
+          </Routes>
+      
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
+  );
+}
+
+export default App;
