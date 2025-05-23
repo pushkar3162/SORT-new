@@ -69,7 +69,7 @@ function AuthForm() {
         if (res.ok) {
           localStorage.setItem("auth_token", res.access_token);
           alert("Login successful!");
-          navigate("/dashboard");
+          navigate("/dash");
         } else {
           alert(handleErrorMessage(res, "Login failed"));
         }
@@ -108,7 +108,7 @@ function AuthForm() {
             if (loginRes.ok) {
               localStorage.setItem("auth_token", loginRes.access_token);
               alert("Account created & logged in successfully!");
-              navigate("/dashboard");
+              navigate("/dash");
             } else {
               alert("OTP verified but auto-login failed. Please login manually.");
               setIsLogin(true);
