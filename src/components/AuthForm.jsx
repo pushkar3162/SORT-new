@@ -18,7 +18,10 @@ import { useNavigate } from "react-router-dom";
 const schema = z.object({
   email: z.string().email("Invalid email"),
   password: z.string().min(4, "Password must be at least 6 characters"),
-  username: z.string().min(3, "Username must be at least 3 characters").optional(),
+  username: z
+    .string()
+    .min(3, "Username must be at least 3 characters")
+    .optional(),
   otp: z.string().optional(),
 });
 
@@ -65,7 +68,11 @@ function AuthForm() {
       formData.append("password", data.password);
 
       try {
-        const res = await mockApiCall("http://localhost:8000/auth/login", "POST", formData);
+        const res = await mockApiCall(
+          "http://localhost:8000/auth/login",
+          "POST",
+          formData
+        );
         if (res.ok) {
           localStorage.setItem("auth_token", res.access_token);
           alert("Login successful!");
@@ -81,7 +88,11 @@ function AuthForm() {
         formData.append("email", data.email);
 
         try {
-          const res = await mockApiCall("http://localhost:8000/auth/register", "POST", formData);
+          const res = await mockApiCall(
+            "http://localhost:8000/auth/register",
+            "POST",
+            formData
+          );
           if (res.ok) {
             alert("OTP sent to your email.");
             setOtpSent(true);
@@ -98,19 +109,29 @@ function AuthForm() {
         formData.append("password", data.password);
 
         try {
-          const res = await mockApiCall("http://localhost:8000/auth/verify-otp", "POST", formData);
+          const res = await mockApiCall(
+            "http://localhost:8000/auth/verify-otp",
+            "POST",
+            formData
+          );
           if (res.ok) {
             const loginForm = new FormData();
             loginForm.append("email", data.email);
             loginForm.append("password", data.password);
 
-            const loginRes = await mockApiCall("http://localhost:8000/auth/login", "POST", loginForm);
+            const loginRes = await mockApiCall(
+              "http://localhost:8000/auth/login",
+              "POST",
+              loginForm
+            );
             if (loginRes.ok) {
               localStorage.setItem("auth_token", loginRes.access_token);
               alert("Account created & logged in successfully!");
               navigate("/dash");
             } else {
-              alert("OTP verified but auto-login failed. Please login manually.");
+              alert(
+                "OTP verified but auto-login failed. Please login manually."
+              );
               setIsLogin(true);
               setOtpSent(false);
             }
@@ -129,7 +150,11 @@ function AuthForm() {
       container
       justifyContent="center"
       alignItems="center"
-      style={{ minHeight: "100vh", minWidth: "100vw" ,backgroundColor: "#F4EBDC" }}
+      style={{
+        minHeight: "100vh",
+        minWidth: "100vw",
+        backgroundColor: "#F4EBDC",
+      }}
     >
       <Paper
         elevation={6}
@@ -196,7 +221,11 @@ function AuthForm() {
                   size="large"
                   style={{ backgroundColor: "#3A506B", color: "#ffffff" }}
                 >
-                  {isLogin ? "Login" : otpSent ? "Verify & Register" : "Send OTP"}
+                  {isLogin
+                    ? "Login"
+                    : otpSent
+                    ? "Verify & Register"
+                    : "Send OTP"}
                 </Button>
               </Box>
             </form>
