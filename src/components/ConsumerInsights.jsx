@@ -1,12 +1,12 @@
 import React from "react";
 
-const MarketIndustry = () => {
+const ConsumerInsights = () => {
   return (
     <div className=" p-6">
-      <h1 className="text-2xl font-bold mb-4">Market & Industry</h1>
+      <h1 className="text-2xl font-bold mb-4">Consumer Insights</h1>
       <p className="text-gray-700">
-        This section provides insights into market trends, industry performance,
-        and other economic factors that influence your business environment.
+        Analyze market trends, industry dynamics, and competitive landscape to
+        make informed business decisions.
       </p>
 
       {/* Placeholder for future content */}
@@ -19,4 +19,4 @@ const MarketIndustry = () => {
   );
 };
 
-export default MarketIndustry;
+export default ConsumerInsights;
