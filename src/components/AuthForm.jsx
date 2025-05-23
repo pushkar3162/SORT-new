@@ -18,10 +18,14 @@ import { useNavigate } from "react-router-dom";
 const schema = z.object({
   email: z.string().email("Invalid email"),
   password: z.string().min(4, "Password must be at least 6 characters"),
+<<<<<<< HEAD
   username: z
     .string()
     .min(3, "Username must be at least 3 characters")
     .optional(),
+=======
+  username: z.string().min(3, "Username must be at least 3 characters").optional(),
+>>>>>>> ca8b104e78ea3a15d20737f94b791c41253d1b14
   otp: z.string().optional(),
 });
 
@@ -68,6 +72,7 @@ function AuthForm() {
       formData.append("password", data.password);
 
       try {
+<<<<<<< HEAD
         const res = await mockApiCall(
           "http://localhost:8000/auth/login",
           "POST",
@@ -77,6 +82,13 @@ function AuthForm() {
           localStorage.setItem("auth_token", res.access_token);
           alert("Login successful!");
           navigate("/dash");
+=======
+        const res = await mockApiCall("http://localhost:8000/auth/login", "POST", formData);
+        if (res.ok) {
+          localStorage.setItem("auth_token", res.access_token);
+          alert("Login successful!");
+          navigate("/dashboard");
+>>>>>>> ca8b104e78ea3a15d20737f94b791c41253d1b14
         } else {
           alert(handleErrorMessage(res, "Login failed"));
         }
@@ -88,11 +100,15 @@ function AuthForm() {
         formData.append("email", data.email);
 
         try {
+<<<<<<< HEAD
           const res = await mockApiCall(
             "http://localhost:8000/auth/register",
             "POST",
             formData
           );
+=======
+          const res = await mockApiCall("http://localhost:8000/auth/register", "POST", formData);
+>>>>>>> ca8b104e78ea3a15d20737f94b791c41253d1b14
           if (res.ok) {
             alert("OTP sent to your email.");
             setOtpSent(true);
@@ -109,16 +125,21 @@ function AuthForm() {
         formData.append("password", data.password);
 
         try {
+<<<<<<< HEAD
           const res = await mockApiCall(
             "http://localhost:8000/auth/verify-otp",
             "POST",
             formData
           );
+=======
+          const res = await mockApiCall("http://localhost:8000/auth/verify-otp", "POST", formData);
+>>>>>>> ca8b104e78ea3a15d20737f94b791c41253d1b14
           if (res.ok) {
             const loginForm = new FormData();
             loginForm.append("email", data.email);
             loginForm.append("password", data.password);
 
+<<<<<<< HEAD
             const loginRes = await mockApiCall(
               "http://localhost:8000/auth/login",
               "POST",
@@ -132,6 +153,15 @@ function AuthForm() {
               alert(
                 "OTP verified but auto-login failed. Please login manually."
               );
+=======
+            const loginRes = await mockApiCall("http://localhost:8000/auth/login", "POST", loginForm);
+            if (loginRes.ok) {
+              localStorage.setItem("auth_token", loginRes.access_token);
+              alert("Account created & logged in successfully!");
+              navigate("/dashboard");
+            } else {
+              alert("OTP verified but auto-login failed. Please login manually.");
+>>>>>>> ca8b104e78ea3a15d20737f94b791c41253d1b14
               setIsLogin(true);
               setOtpSent(false);
             }
@@ -150,11 +180,15 @@ function AuthForm() {
       container
       justifyContent="center"
       alignItems="center"
+<<<<<<< HEAD
       style={{
         minHeight: "100vh",
         minWidth: "100vw",
         backgroundColor: "#F4EBDC",
       }}
+=======
+      style={{ minHeight: "100vh", minWidth: "100vw" ,backgroundColor: "#F4EBDC" }}
+>>>>>>> ca8b104e78ea3a15d20737f94b791c41253d1b14
     >
       <Paper
         elevation={6}
@@ -221,11 +255,15 @@ function AuthForm() {
                   size="large"
                   style={{ backgroundColor: "#3A506B", color: "#ffffff" }}
                 >
+<<<<<<< HEAD
                   {isLogin
                     ? "Login"
                     : otpSent
                     ? "Verify & Register"
                     : "Send OTP"}
+=======
+                  {isLogin ? "Login" : otpSent ? "Verify & Register" : "Send OTP"}
+>>>>>>> ca8b104e78ea3a15d20737f94b791c41253d1b14
                 </Button>
               </Box>
             </form>

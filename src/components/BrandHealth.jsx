@@ -15,4 +15,8 @@ const BrandHealth = () => {
   );
 };
 
+<<<<<<< HEAD
 export default BrandHealth;
+=======
+export default BrandHealth;
+>>>>>>> ca8b104e78ea3a15d20737f94b791c41253d1b14

@@ -15,4 +15,8 @@ const Competitors = () => {
   );
 };
 
+<<<<<<< HEAD
 export default Competitors;
+=======
+export default Competitors;
+>>>>>>> ca8b104e78ea3a15d20737f94b791c41253d1b14
