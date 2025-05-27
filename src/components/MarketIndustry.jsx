@@ -1,20 +1,134 @@
 import React from "react";
+import { motion } from "motion/react";
+
+import "./market.css";
 
 const MarketIndustry = () => {
   return (
-    <div className=" p-6">
-      <h1 className="text-2xl font-bold mb-4">Market & Industry</h1>
-      <p className="text-gray-700">
-        This section provides insights into market trends, industry performance,
-        and other economic factors that influence your business environment.
-      </p>
+    <div className="market-container h-auto text-red-500  mx-auto bg-purple-50 p-6 grid grid-cols-3 gap-4">
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 1, ease: "easeInOut" }}
+        className="market-card
+        p-4 w-[340px] h-[210px]  border shadow-md"
+      >
+        <h5>Estimated Market Size </h5>
+      </motion.div>
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 1, ease: "easeInOut" }}
+        className="market-card
+        p-4 w-[340px] h-[210px]  border shadow-md"
+      >
+        <h5>Estimated Market Growth Rate</h5>
+      </motion.div>
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 1, ease: "easeInOut" }}
+        className="market-card
+        p-4 w-[340px] h-[210px]  border shadow-md"
+      >
+        <h5>Key Market Trends Identification:</h5>
+      </motion.div>
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 1, ease: "easeInOut" }}
+        className="market-card
+        p-4 w-[340px] h-[210px]  border shadow-md"
+      >
+        <h5>Trend Strength </h5>
+      </motion.div>
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 1, ease: "easeInOut" }}
+        className="market-card
+        p-4 w-[340px] h-[210px]  border shadow-md"
+      >
+        <h5>Regulatory Changes/News Frequency </h5>
+      </motion.div>
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 1, ease: "easeInOut" }}
+        className="market-card
+        p-4 w-[340px] h-[210px]  border shadow-md"
+      >
+        <h5>Key Technology Mentions </h5>
+      </motion.div>
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 1, ease: "easeInOut" }}
+        className="market-card
+        p-4 w-[340px] h-[210px]  border shadow-md"
+      >
+        <h5>E-commerce Penetration Indicator</h5>
+      </motion.div>
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 1, ease: "easeInOut" }}
+        className="market-card
+        p-4 w-[340px] h-[210px]  border shadow-md"
+      >
+        <h5>Quick-Commerce Growth Indicator </h5>
+      </motion.div>
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 1, ease: "easeInOut" }}
+        className="market-card
+        
+        p-4 w-[340px] h-[210px]  border shadow-md"
+      >
+        <h5>Sustainability Focus Index </h5>
+      </motion.div>
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        className="market-card
+        p-4 w-[340px] h-[210px]  border shadow-md"
+      >
+        <h5>Health & Wellness Trend Index </h5>
+      </motion.div>
 
-      {/* Placeholder for future content */}
-      <div className="mt-6 p-4 bg-white rounded shadow">
-        <p className="text-gray-600">
-          Charts, graphs, and reports will go here.
-        </p>
-      </div>
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        className="market-card
+        p-4 w-[340px] h-[210px]  border shadow-md"
+      >
+        <h5>Key Ingredient Price Trend Mentions </h5>
+      </motion.div>
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        className="market-card
+        p-4 w-[340px] h-[210px]  border shadow-md"
+      >
+        <h5>Geographic Hotspots</h5>
+      </motion.div>
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        className="market-card
+        p-4 w-[340px] h-[210px]  border shadow-md"
+      >
+        <h5>Emerging Category Identification</h5>
+      </motion.div>
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        className="market-card
+        p-4 w-[340px] h-[210px]  border shadow-md"
+      >
+        <h5>Private Label Growth Mentions </h5>
+      </motion.div>
     </div>
   );
 };
