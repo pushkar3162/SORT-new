@@ -41,8 +41,13 @@ const BrandHealthKPIs = () => {
           key={title}
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          transition={{ duration: 1, ease: "easeInOut", delay: index * 0.02 }}
-          className="brand-card p-4 w-[430px] h-[250px] border shadow-md bg-white rounded-lg hover:scale-110 hover:rounded-xl hover:shadow-lg transition-all duration-500 ease-in-out"
+          whileHover={{ scale: 1.2, borderRadius: "10px" }}
+          transition={{
+            duration: 0.5,
+            ease: "easeInOut",
+            delay: index * 0.1, // 👈 smoother appearance
+          }}
+          className="brand-card p-4 w-[430px] h-[250px] border shadow-md bg-white rounded-lg ease-in-out"
         >
           <h5>{title}</h5>
         </motion.div>
